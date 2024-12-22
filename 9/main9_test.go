@@ -4,7 +4,6 @@ import (
 	"testing"
 )
 
-// Функция для генерации натуральных чисел
 func generateNaturals(n int) <-chan int {
 	naturals := make(chan int)
 	go func() {
@@ -16,7 +15,6 @@ func generateNaturals(n int) <-chan int {
 	return naturals
 }
 
-// Функция для вычисления кубов
 func cubeNaturals(naturals <-chan int) <-chan float64 {
 	cube := make(chan float64)
 	go func() {
@@ -28,7 +26,6 @@ func cubeNaturals(naturals <-chan int) <-chan float64 {
 	return cube
 }
 
-// Тестирование функции генерации натуральных чисел
 func TestGenerateNaturals(t *testing.T) {
 	naturals := generateNaturals(10)
 
@@ -42,7 +39,6 @@ func TestGenerateNaturals(t *testing.T) {
 	}
 }
 
-// Тестирование функции вычисления кубов
 func TestCubeNaturals(t *testing.T) {
 	naturals := generateNaturals(10)
 	cubes := cubeNaturals(naturals)
